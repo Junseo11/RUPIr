@@ -7,6 +7,7 @@ public class MosnterAnimator : MonoBehaviour
 {
 
     private Animator anim;
+    public UnityEngine.AI.NavMeshAgent agent;
 
     // Start is called before the first frame update
 
@@ -16,8 +17,12 @@ public class MosnterAnimator : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+    
 
         Walk(true);
+        Hit(false);
+
+
 
         
     }
@@ -30,13 +35,21 @@ public class MosnterAnimator : MonoBehaviour
     void Update()
     {
 
-        
-       
+        if(agent.speed>1.0f){
+            Debug.Log("ssss");
+            Run(true);
+        }
 
     }
 
     void Walk(bool walk){
-        Debug.Log(walk);
         anim.SetBool("Walk",walk);
+    }
+    void Run(bool run){
+        anim.SetBool("Run",run);
+    }
+
+    void Hit(bool hit){
+        anim.SetBool("Hit",hit);
     }
 }

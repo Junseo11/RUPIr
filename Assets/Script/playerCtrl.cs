@@ -10,7 +10,7 @@ public class playerCtrl : MonoBehaviour
     public float mouseSpeed= 3.0f;      // 마우스 민감도
     float rotationX;                    // 좌우 시점
     float rotationY;                    // 위아래 시점
-    private bool isDie=false;           // 플레이어가 몬스터랑 접촉했는지
+
     public GameObject gameover;
     
 

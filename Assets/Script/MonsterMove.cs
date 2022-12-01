@@ -10,7 +10,7 @@ public class MonsterMove : MonoBehaviour
     public GameObject target;
     public UnityEngine.AI.NavMeshAgent agent;
 
-    private float speed=0.0f;
+    public static float speed=0.0f;
 
 
 
