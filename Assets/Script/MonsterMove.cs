@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class MonsterMove : MonoBehaviour
@@ -9,12 +10,20 @@ public class MonsterMove : MonoBehaviour
     public GameObject target;
     public UnityEngine.AI.NavMeshAgent agent;
 
+    private float speed=0.0f;
+
+
+
     public static bool isSafe=false; // 안전지대에 들어가 있는지 
+
+    private float time=0.0f;
 
 
     // Start is called before the first frame update
     void Start()
     {
+
+           
         
     }
 
@@ -22,9 +31,21 @@ public class MonsterMove : MonoBehaviour
     void Update()
     {
 
+        time+=Time.deltaTime/2;   //0.5초씩 speed 증가 
+
+         agent.speed=3.5f+time;
 
       
-        MoveToTarget();
+        MoveToTarget(); //타겟으로 이동
+
+        if(Input.GetKeyDown(KeyCode.R)){ //R키 누르면 재시작 
+
+            agent.speed=3.5f;   //몬스터 속도 초기화 
+
+
+            SceneManager.LoadScene("SampleScene");
+
+        }
         
     }
 
